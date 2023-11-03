@@ -9,20 +9,20 @@ app.use(express.json())
 
 const posts = [{
     
-    user_token: '12345',
+    token: '12345',
     nombre: 'Jose Altuve',
     email: 'mejiasoscar1990@gmail.com',
     
 },
 {
-    user_token: '67890',
+    token: '67890',
     nombre: 'Joseito',
     email: 'jose@example.com',
     
 },
 
 {
-    user_token: '1990',
+    token: '1990',
     nombre: 'Oriana',
     email: 'oriana@example.com',
     
@@ -40,7 +40,7 @@ app.post('/login', (req,res) => {
 
     const timestamp = Math.round((new Date()).getTime()/1000)
 
-    const username = posts.find(username => username.user_token === req.body.user_token)
+    const username = posts.find(username => username.token === req.body.token)
 
     if (!username) {
         return res.status(401).json({ error: "User not found" });
