@@ -10,8 +10,8 @@ app.use(express.json())
 const posts = [{
     
     user_token: '12345',
-    nombre: 'Osc',
-    email: 'oscar@example.com',
+    nombre: 'Jose Altuve',
+    email: 'mejiasoscar1990@gmail.com',
     
 },
 {
