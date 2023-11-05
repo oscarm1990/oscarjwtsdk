@@ -9,20 +9,20 @@ app.use(express.json())
 
 const posts = [{
     
-    token: '12345',
+    user_token: '12345',
     nombre: 'Jose Altuve',
     email: 'mejiasoscar1990@gmail.com',
     
 },
 {
-    token: '67890',
+    user_token: '67890',
     nombre: 'Joseito',
     email: 'jose@example.com',
     
 },
 
 {
-    token: '1990',
+    user_token: '1990',
     nombre: 'Oriana',
     email: 'oriana@example.com',
     
@@ -39,19 +39,21 @@ app.post('/login', (req,res) => {
     //Authenticate the user
 
     const timestamp = Math.round((new Date()).getTime()/1000)
+    const jtinumber = (timestamp/100)*53;
+    const jti = Math.round(jtinumber);
 
-    const username = posts.find(username => username.token === req.body.token)
+    const username = posts.find(username => username.user_token === req.body.user_token)
 
-    if (!username) {
-        return res.status(401).json({ error: "User not found" });
-    }
+    //if (!username) {
+    //    return res.status(401).json({ error: "User not found" });
+   // }
 
     const user = {
         
         name:username.nombre,
         email:username.email,
         iat: timestamp,
-        jti: timestamp/100
+        jti: jti
     }
 
     const accessToken = jwt.sign (user, process.env.ACCESS_TOKEN_SECRET)
