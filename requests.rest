@@ -2,4 +2,4 @@
 POST http://localhost:3000/login
 Content-Type: application/json 
 
-{"user_token": "1990"}
+user_token: 1990
