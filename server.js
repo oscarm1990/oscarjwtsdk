@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
     jti: jti,
   }
 
-  const accessToken = jwt.sign(user, 'WMVz59dikJ5XxzdKbkAu4iZWEtS63wP3XlHDSToZ2Bp4Pzha')
+  const accessToken = jwt.sign(user, 'hgH6Un4Tw5myCm9Qj7Z6nRkvSQubzcjocdspzFD6IKzaujqQ')
   res.json({ jwt: accessToken })
 })
 
